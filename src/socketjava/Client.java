@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author enric
+ *
  */
 public class Client {
 

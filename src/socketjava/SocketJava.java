@@ -7,7 +7,7 @@ package socketjava;
 
 /**
  *
- * @author enric
+ * 
  */
 public class SocketJava {
 
