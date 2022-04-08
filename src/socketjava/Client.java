@@ -23,6 +23,10 @@ public class Client {
         Socket socket;
         try {
             socket=new Socket("127.0.0.1",2000);
+            
+            BufferedReader br=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            System.out.println(br.readLine());
+            
             socket.close();
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);

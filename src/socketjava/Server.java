@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 /**
  * Author:Trattorino
  *
- *
+ */
 public class Server {
 
     /**
@@ -23,7 +23,13 @@ public class Server {
         ServerSocket serverSocket;
         try {
             serverSocket=new ServerSocket(2000);
-            serverSocket.accept();
+            //serverSocket.accept();
+            
+            Socket socket=serverSocket.accept();
+            BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            bw.write("Ciao Client sono trattorino UwU\n");
+            bw.flush();
+            
             serverSocket.close();
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
