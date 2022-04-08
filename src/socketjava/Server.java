@@ -7,6 +7,7 @@ package socketjava;
 
 import java.net.*;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +30,15 @@ public class Server {
             BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             bw.write("Ciao Client sono trattorino UwU\n");
             bw.flush();
+            
+            BufferedReader br=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String msg=br.readLine();
+            System.out.println(msg);
+            if(msg.equals("Mi potresti dare la data?")) {
+                bw.write("data che hai chisto: " + LocalDate.now().toString() + "\n");
+                bw.flush();
+            }
+            
             
             serverSocket.close();
         } catch (IOException ex) {
